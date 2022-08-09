@@ -17,12 +17,12 @@ services:
     networks:
       - chat
 
-  react-chat:
-    build: .
-    ports:
-      - 80:80
-    depends_on:
-      - ejabberd
-    restart: always
-    networks:
-      - chat
+  # react-chat:
+  #   build: .
+  #   ports:
+  #     - 80:80
+  #   depends_on:
+  #     - ejabberd
+  #   restart: always
+  #   networks:
+  #     - chat

@@ -104,6 +104,53 @@ class ejabberdApi{
         });
     }
 
+    async changeUserPassword(user, host,newpass){
+        return new Promise(resolve => {
+            fetch(`${this.api}/change_password`,{
+                method: 'post',
+                headers: this.headers,
+                body:JSON.stringify({
+                    user: user,
+                    host: host,
+                    newpass:newpass
+                })
+            }).then(res => res.json())
+            .then(result => {
+                resolve(result);
+            });
+        });
+    }
+    async getNumberOfOfllineMessages(user, host){
+        return new Promise(resolve => {
+            fetch(`${this.api}/get_offline_count`,{
+                method: 'post',
+                headers: this.headers,
+                body:JSON.stringify({
+                    user: user,
+                    server: host,
+                })
+            }).then(res => res.json())
+            .then(result => {
+                resolve(result);
+            });
+        });
+    }
+    async getLastSeen(user, host){
+        return new Promise(resolve => {
+            fetch(`${this.api}/get_last`,{
+                method: 'post',
+                headers: this.headers,
+                body:JSON.stringify({
+                    user: user,
+                    host: host,
+                })
+            }).then(res => res.json())
+            .then(result => {
+                resolve(result);
+            });
+        });
+    }
+
     async createUser(user, password, host){
         return new Promise(resolve => {
             fetch(`${this.api}/register`,{
